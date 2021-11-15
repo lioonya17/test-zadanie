@@ -41,6 +41,11 @@ input::-ms-clear {
   display: none;
 }
 
+textarea,
+input {
+  font-family: "Source Sans Pro";
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -57,6 +62,7 @@ $inter: "Inter";
 .wrapper {
   overflow: hidden;
   min-height: 100%;
+  background-color: rgba(255, 254, 251, 0.8);
 }
 
 .container {
@@ -81,34 +87,55 @@ $inter: "Inter";
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-
-    background: #fffefb;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 10px 16px;
-
-    transition: background 0.3s ease, color 0.3s ease;
-
-    &-text {
-      font-size: 12px;
-      line-height: calc(15 / 12 * 100%);
-      color: #b4b4b4;
-      margin-right: 5px;
-    }
+    position: relative;
   }
 
-  &__btn:hover {
+  &__option {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px 28px 10px 16px;
+
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: #fffefb;
+    color: #b4b4b4;
+    font-size: 12px;
+    line-height: calc(15 / 12 * 100%);
+    transition: background 0.3s linear, color 0.3s linear;
+  }
+
+  &__option:hover {
     background: #3f3f3f;
     color: #fff;
   }
+}
+
+.arrow {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-top: 1px solid #b4b4b4;
+  border-left: 1px solid #b4b4b4;
+  transform: rotate(-135deg);
+  width: 5px;
+  height: 5px;
+  top: 39%;
+  right: 16px;
+  z-index: 4;
+  transition: border-top 0.3 linear, border-left 0.3 linear;
+}
+
+.arrow:hover {
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
 }
 
 /* --- Content --- */
 
 .content {
   display: flex;
+  margin-bottom: 20px;
 
   &__body {
     display: flex;
@@ -298,10 +325,12 @@ $inter: "Inter";
 
   .content__body {
     width: 100%;
+    margin: 0;
   }
 
   .content-card {
     max-width: 100%;
+    margin: 0 0 20px;
 
     &__img {
       height: auto;
